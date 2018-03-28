@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		maximum-scale=1.0, user-scalable=no">
+
+		<title>8K</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ?
+				'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>structure / build / test</h2>
+					<i>code like real men do</i>
+				</section>
+
+				<section>
+					<section>
+						<h2>Objectifs</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Organiser son dépôt</li>
+							<li>Compiler son projet</li>
+							<li>Penser son architecture</li>
+							<li>Penser et écrire des tests</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Organiser son dépot</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Isoler les sources</li>
+							<li>Un compartiment par entité logique</li>
+							<li>Makefile à la racine</li>
+							<li>Les tests sont un projet en soi</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./img/tree.png" class="stretch"></img>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Compiler son projet</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Une nouvelle target: <b>tests</b></li>
+							<li>Adapter les autres targets</li>
+							<li>Makefile de tests transparent</li>
+							<li><code>make -C</code></li>
+							<li>Utilisez <b>.gitignore</b></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Penser son architecture</h2>
+					</section>
+					<section>
+						<ul>
+							<li><b>Découpage</b></li>
+							<li>En entités logiques</li>
+							<li>Fonctionnel</li>
+							<li>Eviter les fonctions <code>static</code></li>
+						</ul>
+					</section>
+					<section>
+						<p>pensez en boite noire</p>
+					</section>
+					<section>
+						<p>style UNIX : une fonction fait une chose, bien</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Penser et écrire des tests</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Un test valide un comportement</li>
+							<li>Ou un effet de bord</li>
+							<li>Par comparaison ou par anticipation</li>
+							<li>Un test n'a pas d'effet de bord</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>Les permutations</li>
+							<li>Les extremes</li>
+							<li>Les erreurs</li>
+							<li>Les crash</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Le coverage</h2>
+					</section>
+					<section>
+						<ul>
+							<li>gcov</li>
+							<li>--coverage</li>
+							<li>-fprofile-arcs -ftest-coverage</li>
+							<li>gcdo / gcna / gcov</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./img/coverage.png" class="stretch"></img>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Test Driven Development</h2>
+					</section>
+					<section>
+						<ul>
+							<li>Ecrire le test</li>
+							<li>Le test est en échec</li>
+							<li>Valider un code minimal</li>
+							<li>Le test est en succès</li>
+							<li>Améliorer le code</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./img/mvp.png" class="stretch"></img>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Unitaire VS Intégration</h2>
+					</section>
+					<section>
+						<iframe width="560" height="315"
+							src="https://www.youtube.com/embed/0GypdsJulKE?rel=0&amp;showinfo=0"
+							frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>D'autres outils</h2>
+					</section>
+					<section>
+						<a target="_blank" href="https://goo.gl/KtSLjb">https://goo.gl/KtSLjb</a>
+					</section>
+					<section>
+						<img src="./img/pipeline.png" class="stretch"></img>
+						<i>Source : Jason Poon</i>
+					</section>
+				</section>
+
+				<section>
+					<h2>Des questions ?</h2>
+				</section>
+
+				<section>
+					<h2>Merci !</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback:
+						function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
