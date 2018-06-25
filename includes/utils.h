@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <signal.h>
 
 void my_putstr(const char *str);
 void my_putstr_error(const char *str);
